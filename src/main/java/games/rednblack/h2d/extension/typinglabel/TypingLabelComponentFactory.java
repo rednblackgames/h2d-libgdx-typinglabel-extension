@@ -61,9 +61,10 @@ public class TypingLabelComponentFactory extends ComponentFactory {
 
     protected void initializeLabelComponent(LabelComponent component, LabelVO vo) {
         component.setText(vo.text);
-        component.setStyle(generateStyle(rm, vo.style, vo.size));
+        component.setStyle(generateStyle(rm, vo.style, vo.size, vo.monoSpace));
         component.fontName = vo.style;
         component.fontSize = vo.size;
+        component.mono = vo.monoSpace;
         component.setAlignment(vo.align);
         component.setWrap(vo.wrap);
         component.typingEffect = vo.isTyping;
@@ -80,12 +81,12 @@ public class TypingLabelComponentFactory extends ComponentFactory {
     }
 
 
-    public static LabelStyle generateStyle(IResourceRetriever rManager, String fontName, int size) {
+    public static LabelStyle generateStyle(IResourceRetriever rManager, String fontName, int size, boolean mono) {
 
         if (size == 0) {
             size = labelDefaultSize;
         }
-        return new LabelStyle(rManager.getBitmapFont(fontName, size), null);
+        return new LabelStyle(rManager.getBitmapFont(fontName, size, mono), null);
     }
 
 }
