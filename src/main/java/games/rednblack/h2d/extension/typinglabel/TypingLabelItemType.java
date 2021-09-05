@@ -4,19 +4,19 @@ import com.artemis.systems.IteratingSystem;
 import games.rednblack.editor.renderer.commons.IExternalItemType;
 import games.rednblack.editor.renderer.factory.EntityFactory;
 import games.rednblack.editor.renderer.factory.component.ComponentFactory;
-import games.rednblack.editor.renderer.systems.render.logic.Drawable;
+import games.rednblack.editor.renderer.systems.render.logic.DrawableLogic;
 import games.rednblack.editor.renderer.utils.ComponentRetriever;
 
 public class TypingLabelItemType implements IExternalItemType {
 
     private ComponentFactory factory;
     private IteratingSystem system;
-    private Drawable drawable;
+    private DrawableLogic drawableLogic;
 
     public TypingLabelItemType() {
         factory = new TypingLabelComponentFactory();
         system = new TypingLabelSystem();
-        drawable = new TypingLabelDrawableLogic();
+        drawableLogic = new TypingLabelDrawableLogic();
     }
 
     @Override
@@ -25,8 +25,8 @@ public class TypingLabelItemType implements IExternalItemType {
     }
 
     @Override
-    public Drawable getDrawable() {
-        return drawable;
+    public DrawableLogic getDrawable() {
+        return drawableLogic;
     }
 
     @Override

@@ -8,10 +8,10 @@ import games.rednblack.editor.renderer.components.ParentNodeComponent;
 import games.rednblack.editor.renderer.components.TintComponent;
 import games.rednblack.editor.renderer.components.TransformComponent;
 import games.rednblack.editor.renderer.components.label.LabelComponent;
-import games.rednblack.editor.renderer.systems.render.logic.Drawable;
+import games.rednblack.editor.renderer.systems.render.logic.DrawableLogic;
 import games.rednblack.editor.renderer.utils.TransformMathUtils;
 
-public class TypingLabelDrawableLogic implements Drawable {
+public class TypingLabelDrawableLogic implements DrawableLogic {
 
     protected ComponentMapper<LabelComponent> labelComponentMapper;
     protected ComponentMapper<TypingLabelComponent> typingLabelComponentMapper;
