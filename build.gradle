@@ -26,6 +26,9 @@ test {
 java {
     withJavadocJar()
     withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
 }
 
 task dist(type: Jar) {
@@ -34,6 +37,5 @@ task dist(type: Jar) {
 }
 
 tasks.withType(JavaCompile) {
-    sourceCompatibility = "1.7"
-    targetCompatibility = "1.7"
+    options.compilerArgs += ["--release", "7"]
 }
