@@ -6,7 +6,7 @@ import games.rednblack.editor.renderer.components.RemovableObject;
 
 public class TypingLabelComponent extends PooledComponent implements RemovableObject {
 
-    public TypingLabel typingLabel;
+    public transient TypingLabel typingLabel;
 
     @Override
     public void reset() {
