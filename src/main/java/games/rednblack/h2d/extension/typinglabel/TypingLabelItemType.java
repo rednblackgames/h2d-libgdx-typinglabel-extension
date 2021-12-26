@@ -44,4 +44,14 @@ public class TypingLabelItemType implements IExternalItemType {
     public void injectMappers() {
         ComponentRetriever.addMapper(TypingLabelComponent.class);
     }
+
+    @Override
+    public boolean hasResources() {
+        return false;
+    }
+
+    @Override
+    public String formatResourcePath(String resName) {
+        throw new RuntimeException("Method not implemented.");
+    }
 }
