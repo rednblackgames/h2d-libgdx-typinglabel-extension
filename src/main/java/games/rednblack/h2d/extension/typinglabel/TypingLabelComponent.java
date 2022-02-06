@@ -2,9 +2,8 @@ package games.rednblack.h2d.extension.typinglabel;
 
 import com.artemis.PooledComponent;
 import com.rafaskoberg.gdx.typinglabel.TypingLabel;
-import games.rednblack.editor.renderer.components.RemovableObject;
 
-public class TypingLabelComponent extends PooledComponent implements RemovableObject {
+public class TypingLabelComponent extends PooledComponent {
 
     public transient TypingLabel typingLabel;
 
@@ -13,10 +12,5 @@ public class TypingLabelComponent extends PooledComponent implements RemovableOb
         if (typingLabel != null)
             typingLabel.remove();
         typingLabel = null;
-    }
-
-    @Override
-    public void onRemove() {
-        reset();
     }
 }
