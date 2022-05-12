@@ -21,7 +21,7 @@ dependencies {
 <dependency>
   <groupId>games.rednblack.hyperlap2d</groupId>
   <artifactId>libgdx-typinglabel-extension</artifactId>
-  <version>0.0.8</version>
+  <version>0.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -30,6 +30,7 @@ dependencies {
 
 | HyperLap2D | Typing Label       |
 |------------| ------------------ |
+| 0.1.0      | 1.2.0              |
 | 0.0.8      | 1.2.0              |
 
 ### License
