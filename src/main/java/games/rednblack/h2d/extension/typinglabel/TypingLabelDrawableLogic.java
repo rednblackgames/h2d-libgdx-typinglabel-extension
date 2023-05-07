@@ -54,4 +54,14 @@ public class TypingLabelDrawableLogic implements DrawableLogic {
         TransformMathUtils.resetTransform(batch, entityTransformComponent);
     }
 
+    @Override
+    public void beginPipeline() {
+
+    }
+
+    @Override
+    public void endPipeline() {
+
+    }
+
 }
