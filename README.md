@@ -21,17 +21,17 @@ dependencies {
 <dependency>
   <groupId>games.rednblack.hyperlap2d</groupId>
   <artifactId>libgdx-typinglabel-extension</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <type>pom</type>
 </dependency>
 ```
 
 **Typing Label Runtime compatibility**
 
-| HyperLap2D | Typing Label |
-|------------|--------------|
-| 0.1.1      | 1.3.0        |
-| 0.1.0      | 1.2.0        |
+| HyperLap2D     | Typing Label |
+|----------------|--------------|
+| 0.1.3-SNAPSHOT | 1.3.0        |
+| 0.1.2          | 1.3.0        |
 
 ### License
 HyperLap2D's libGDX runtime Typing Label extension is licensed under the Apache 2.0 License. You can use it free of charge, without limitations both in commercial and non-commercial projects. We love to get (non-mandatory) credit in case you release a game or app using HyperLap2D!
