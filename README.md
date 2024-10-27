@@ -1,6 +1,6 @@
 ## HyperLap2D libGDX Typing Label Extension
 
-HyperLap2D extension for libgdx runtime that adds [Typing Label](https://github.com/rafaskb/typing-label) support.
+HyperLap2D extension for libgdx runtime that adds [Typing Label - TextraTypist](https://github.com/tommyettinger/textratypist) support.
 
 ### Integration
 
@@ -11,7 +11,7 @@ HyperLap2D extension for libgdx runtime that adds [Typing Label](https://github.
 Extension needs to be included into your `core` project.
 ```groovy
 dependencies {
-    api "com.rafaskoberg.gdx:typing-label:$typingLabelVersion"
+    api "com.github.tommyettinger:textratypist:$textratypistVersion"
     api "games.rednblack.hyperlap2d:libgdx-typinglabel-extension:$h2dTypingLabelExtension"
 }
 ```
@@ -28,10 +28,10 @@ dependencies {
 
 **Typing Label Runtime compatibility**
 
-| HyperLap2D     | Typing Label |
-|----------------|--------------|
-| 0.1.5-SNAPSHOT | 1.4.0        |
-| 0.1.4          | 1.3.0        |
+| HyperLap2D     | Typing Label          |
+|----------------|-----------------------|
+| 0.1.5-SNAPSHOT | 1.1.0 (TextraTypist)  |
+| 0.1.4          | 1.3.0 (Typing Labels) |
 
 ### License
 HyperLap2D's libGDX runtime Typing Label extension is licensed under the Apache 2.0 License. You can use it free of charge, without limitations both in commercial and non-commercial projects. We love to get (non-mandatory) credit in case you release a game or app using HyperLap2D!

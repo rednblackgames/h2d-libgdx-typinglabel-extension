@@ -3,8 +3,9 @@ package games.rednblack.h2d.extension.typinglabel;
 import com.artemis.ComponentMapper;
 import com.artemis.annotations.All;
 import com.artemis.systems.IteratingSystem;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.rafaskoberg.gdx.typinglabel.TypingLabel;
+import com.github.tommyettinger.textra.Font;
+import com.github.tommyettinger.textra.Styles;
+import com.github.tommyettinger.textra.TypingLabel;
 import games.rednblack.editor.renderer.components.DimensionsComponent;
 import games.rednblack.editor.renderer.components.label.LabelComponent;
 
@@ -24,26 +25,28 @@ public class TypingLabelSystem extends IteratingSystem {
         DimensionsComponent dimensionsComponent = dimensionsComponentMapper.get(entity);
 
         if (typingLabelComponent.typingLabel == null) {
-            typingLabelComponent.typingLabel = new TypingLabel(labelComponent.text, labelComponent.style);
-            BitmapFont font = typingLabelComponent.typingLabel.getBitmapFontCache().getFont();
+            typingLabelComponent.labelStyle = new Styles.LabelStyle(labelComponent.style);
+            typingLabelComponent.typingLabel = new TypingLabel(labelComponent.getText().toString(), typingLabelComponent.labelStyle);
+            typingLabelComponent.setOriginalText(labelComponent.getText());
 
             float fontScaleX = labelComponent.fontScaleX;
             float fontScaleY = labelComponent.fontScaleY;
 
-            if (fontScaleX != 1 || fontScaleY != 1) font.getData().setScale(fontScaleX, fontScaleY);
+            Font font = typingLabelComponent.labelStyle.font;
+            font.scale(fontScaleX, fontScaleY);
             typingLabelComponent.typingLabel.setSize(dimensionsComponent.width, dimensionsComponent.height);
             typingLabelComponent.typingLabel.setWrap(labelComponent.wrap);
-            typingLabelComponent.typingLabel.setAlignment(labelComponent.labelAlign, labelComponent.lineAlign);
+            typingLabelComponent.typingLabel.setAlignment(labelComponent.labelAlign);
         } else {
-            if (!typingLabelComponent.typingLabel.getOriginalText().equals(labelComponent.text)){
-                typingLabelComponent.typingLabel.setText(labelComponent.text);
+            if (!typingLabelComponent.getOriginalText().equals(labelComponent.getText())){
+                typingLabelComponent.typingLabel.setText(labelComponent.getText().toString());
+                typingLabelComponent.setOriginalText(labelComponent.getText());
             }
-            if (typingLabelComponent.typingLabel.getWrap() != labelComponent.wrap) {
+            if (typingLabelComponent.typingLabel.isWrap() != labelComponent.wrap) {
                 typingLabelComponent.typingLabel.setWrap(labelComponent.wrap);
             }
-            if (typingLabelComponent.typingLabel.getLabelAlign() != labelComponent.labelAlign
-                    || typingLabelComponent.typingLabel.getLineAlign() != labelComponent.lineAlign) {
-                typingLabelComponent.typingLabel.setAlignment(labelComponent.labelAlign, labelComponent.lineAlign);
+            if (typingLabelComponent.typingLabel.getAlignment() != labelComponent.labelAlign) {
+                typingLabelComponent.typingLabel.setAlignment(labelComponent.labelAlign);
             }
             if (typingLabelComponent.typingLabel.getWidth() != dimensionsComponent.width) {
                 typingLabelComponent.typingLabel.setWidth(dimensionsComponent.width);
