@@ -30,7 +30,7 @@ dependencies {
 
 | HyperLap2D     | Typing Label          |
 |----------------|-----------------------|
-| 0.1.5-SNAPSHOT | 1.1.0 (TextraTypist)  |
+| 0.1.5-SNAPSHOT | 6be1236 (TextraTypist)  |
 | 0.1.4          | 1.3.0 (Typing Labels) |
 
 ### License
