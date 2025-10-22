@@ -5,8 +5,6 @@ import com.artemis.EntityTransmuter;
 import com.artemis.EntityTransmuterFactory;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Pool;
-import com.badlogic.gdx.utils.Pools;
 import games.rednblack.editor.renderer.box2dLight.RayHandler;
 import games.rednblack.editor.renderer.components.DimensionsComponent;
 import games.rednblack.editor.renderer.components.label.LabelComponent;
@@ -23,6 +21,8 @@ public class TypingLabelComponentFactory extends ComponentFactory {
 
     protected ComponentMapper<LabelComponent> labelCM;
     protected ComponentMapper<TypingLabelComponent> typingLabelCM;
+
+    protected GlyphLayout tmpGlyphLayout = new GlyphLayout();
 
     private EntityTransmuter transmuter;
 
@@ -123,14 +123,13 @@ public class TypingLabelComponentFactory extends ComponentFactory {
         LabelComponent labelComponent = labelCM.get(entity);
         DimensionsComponent component = dimensionsCM.get(entity);
         if (component.width == 0 && component.height == 0) {
-            Pool<GlyphLayout> layoutPool = Pools.get(GlyphLayout.class);
-            GlyphLayout layout = layoutPool.obtain();
+            GlyphLayout layout = tmpGlyphLayout;
             layout.setText(labelComponent.cache.getFont(), labelComponent.getText());
             component.width = layout.width / projectInfoVO.pixelToWorld;
             component.width += (component.width * 20) / 100;
             component.height = layout.height / projectInfoVO.pixelToWorld;
             component.height += (component.height * 40) / 100;
-            layoutPool.free(layout);
+            layout.reset();
         }
     }
 }
