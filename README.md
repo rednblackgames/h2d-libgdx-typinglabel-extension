@@ -6,7 +6,7 @@ HyperLap2D extension for libgdx runtime that adds [Typing Label - TextraTypist](
 
 #### Gradle
 ![maven-central](https://img.shields.io/maven-central/v/games.rednblack.hyperlap2d/libgdx-typinglabel-extension?color=blue&label=release)
-![sonatype-nexus](https://img.shields.io/nexus/s/games.rednblack.hyperlap2d/libgdx-typinglabel-extension?label=sanapshot&server=https%3A%2F%2Foss.sonatype.org)
+![sonatype-nexus](https://img.shields.io/maven-metadata/v?label=snapshot&metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fgames%2Frednblack%2Fhyperlap2d%2Flibgdx-typinglabel-extension%2Fmaven-metadata.xml)
 
 Extension needs to be included into your `core` project.
 ```groovy
@@ -21,7 +21,7 @@ dependencies {
 <dependency>
   <groupId>games.rednblack.hyperlap2d</groupId>
   <artifactId>libgdx-typinglabel-extension</artifactId>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <type>pom</type>
 </dependency>
 ```
@@ -30,6 +30,7 @@ dependencies {
 
 | HyperLap2D | Typing Label           |
 |------------|------------------------|
+| 0.1.6      | 6be1236 (TextraTypist) |
 | 0.1.5      | 6be1236 (TextraTypist) |
 | 0.1.4      | 1.3.0 (Typing Labels)  |
 
