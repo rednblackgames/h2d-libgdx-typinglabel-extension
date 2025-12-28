@@ -30,6 +30,7 @@ dependencies {
 
 | HyperLap2D | Typing Label           |
 |------------|------------------------|
+| 0.1.7      | 2.2.8 (TextraTypist)   |
 | 0.1.6      | 6be1236 (TextraTypist) |
 | 0.1.5      | 6be1236 (TextraTypist) |
 | 0.1.4      | 1.3.0 (Typing Labels)  |
