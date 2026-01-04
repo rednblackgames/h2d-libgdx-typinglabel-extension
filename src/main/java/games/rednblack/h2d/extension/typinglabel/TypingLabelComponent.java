@@ -1,6 +1,6 @@
 package games.rednblack.h2d.extension.typinglabel;
 
-import com.artemis.PooledComponent;
+import games.rednblack.editor.renderer.ecs.PooledComponent;
 import com.badlogic.gdx.utils.CharArray;
 import com.github.tommyettinger.textra.Styles;
 import com.github.tommyettinger.textra.TypingLabel;

@@ -1,6 +1,6 @@
 package games.rednblack.h2d.extension.typinglabel;
 
-import com.artemis.systems.IteratingSystem;
+import games.rednblack.editor.renderer.ecs.systems.IteratingSystem;
 import com.badlogic.gdx.utils.ObjectSet;
 import games.rednblack.editor.renderer.commons.IExternalItemType;
 import games.rednblack.editor.renderer.factory.EntityFactory;

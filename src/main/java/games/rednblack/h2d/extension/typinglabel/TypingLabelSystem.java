@@ -1,8 +1,8 @@
 package games.rednblack.h2d.extension.typinglabel;
 
-import com.artemis.ComponentMapper;
-import com.artemis.annotations.All;
-import com.artemis.systems.IteratingSystem;
+import games.rednblack.editor.renderer.ecs.ComponentMapper;
+import games.rednblack.editor.renderer.ecs.annotations.All;
+import games.rednblack.editor.renderer.ecs.systems.IteratingSystem;
 import com.github.tommyettinger.textra.Font;
 import com.github.tommyettinger.textra.Styles;
 import com.github.tommyettinger.textra.TypingLabel;
@@ -56,7 +56,7 @@ public class TypingLabelSystem extends IteratingSystem {
             }
         }
 
-        typingLabelComponent.typingLabel.act(world.getDelta());
+        typingLabelComponent.typingLabel.act(engine.getDelta());
     }
 }
 
