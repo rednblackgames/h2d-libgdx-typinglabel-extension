@@ -1,6 +1,6 @@
 ## HyperLap2D libGDX Typing Label Extension
 
-HyperLap2D extension for libgdx runtime that adds [Typing Label - TextraTypist](https://github.com/tommyettinger/textratypist) support.
+HyperLap2D extension for libgdx runtime that adds [TextraTypist](https://github.com/tommyettinger/textratypist) support.
 
 ### Integration
 
@@ -28,12 +28,12 @@ dependencies {
 
 **Typing Label Runtime compatibility**
 
-| HyperLap2D | Typing Label           |
+| HyperLap2D | TextraTypist           |
 |------------|------------------------|
-| 0.1.7      | 2.2.8 (TextraTypist)   |
-| 0.1.6      | 6be1236 (TextraTypist) |
-| 0.1.5      | 6be1236 (TextraTypist) |
-| 0.1.4      | 1.3.0 (Typing Labels)  |
+| 0.2.0      | 2.5.0 |
+| 0.1.7      | 2.2.8  |
+| 0.1.6      | 6be1236  |
+| 0.1.5      | 6be1236  |
 
 ### License
 HyperLap2D's libGDX runtime Typing Label extension is licensed under the Apache 2.0 License. You can use it free of charge, without limitations both in commercial and non-commercial projects. We love to get (non-mandatory) credit in case you release a game or app using HyperLap2D!
