@@ -5,8 +5,11 @@ import games.rednblack.editor.renderer.ecs.annotations.All;
 import games.rednblack.editor.renderer.ecs.systems.IteratingSystem;
 import com.github.tommyettinger.textra.Font;
 import com.github.tommyettinger.textra.Styles;
-import com.github.tommyettinger.textra.TypingLabel;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import games.rednblack.editor.renderer.components.DimensionsComponent;
+import games.rednblack.editor.renderer.components.ParentNodeComponent;
+import games.rednblack.editor.renderer.components.TransformComponent;
+import games.rednblack.editor.renderer.components.ViewPortComponent;
 import games.rednblack.editor.renderer.components.label.LabelComponent;
 
 @All(LabelComponent.class)
@@ -14,6 +17,20 @@ public class TypingLabelSystem extends IteratingSystem {
     protected ComponentMapper<LabelComponent> labelComponentMapper;
     protected ComponentMapper<TypingLabelComponent> typingLabelComponentMapper;
     protected ComponentMapper<DimensionsComponent> dimensionsComponentMapper;
+    protected ComponentMapper<TransformComponent> transformMapper;
+    protected ComponentMapper<ParentNodeComponent> parentMapper;
+    protected ComponentMapper<ViewPortComponent> viewPortMapper;
+
+    /**
+     * When false the labels are kept untouchable, so that pointer driven effects still highlight on
+     * hover but a click never fires them. The editor drives this from its sandbox settings, to keep
+     * {@code {LINK=...}} from opening a browser every time a label is picked on the canvas.
+     */
+    private boolean clickable = true;
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
     @Override
     protected void process(int entity) {
@@ -26,7 +43,11 @@ public class TypingLabelSystem extends IteratingSystem {
 
         if (typingLabelComponent.typingLabel == null) {
             typingLabelComponent.labelStyle = new Styles.LabelStyle(labelComponent.style);
-            typingLabelComponent.typingLabel = new TypingLabel(labelComponent.getText().toString(), typingLabelComponent.labelStyle);
+            H2DTypingLabel typingLabel = new H2DTypingLabel(labelComponent.getText().toString(), typingLabelComponent.labelStyle);
+            // Lets effects that track the mouse, like {LINK=...}, turn the pointer into this entity's
+            // coordinates; the label is drawn by the pipeline, not by a Stage, so nothing else can.
+            typingLabel.setEntity(entity, transformMapper, parentMapper, viewPortMapper);
+            typingLabelComponent.typingLabel = typingLabel;
             typingLabelComponent.setOriginalText(labelComponent.getText());
 
             float fontScaleX = labelComponent.fontScaleX;
@@ -56,6 +77,7 @@ public class TypingLabelSystem extends IteratingSystem {
             }
         }
 
+        typingLabelComponent.typingLabel.setTouchable(clickable ? Touchable.enabled : Touchable.disabled);
         typingLabelComponent.typingLabel.act(engine.getDelta());
     }
 }
