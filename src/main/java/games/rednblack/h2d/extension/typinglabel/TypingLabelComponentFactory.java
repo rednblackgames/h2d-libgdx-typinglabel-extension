@@ -87,6 +87,7 @@ public class TypingLabelComponentFactory extends ComponentFactory {
         labelComponent.mono = vo.monoSpace;
         labelComponent.setAlignment(vo.align);
         labelComponent.setWrap(vo.wrap);
+        labelComponent.fitWidth = vo.fitWidth;
         labelComponent.typingEffect = vo.isTyping;
 
         ProjectInfoVO projectInfoVO = rm.getProjectVO();
