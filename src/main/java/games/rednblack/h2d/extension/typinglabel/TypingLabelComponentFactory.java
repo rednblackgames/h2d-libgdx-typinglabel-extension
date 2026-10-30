@@ -77,14 +77,11 @@ public class TypingLabelComponentFactory extends ComponentFactory {
         LabelComponent labelComponent = labelCM.get(entity);
         labelComponent.setText(vo.text);
         labelComponent.bitmapFont = vo.bitmapFont;
-        if (vo.bitmapFont != null) {
-            labelComponent.setStyle(LabelComponentFactory.generateStyle(rm, vo.bitmapFont));
-        } else {
-            labelComponent.setStyle(LabelComponentFactory.generateStyle(rm, vo.style, vo.size, vo.monoSpace));
-        }
         labelComponent.fontName = vo.style;
         labelComponent.fontSize = vo.size;
         labelComponent.mono = vo.monoSpace;
+        LabelComponentFactory.setBorder(labelComponent, vo);
+        labelComponent.setStyle(LabelComponentFactory.generateStyle(rm, labelComponent));
         labelComponent.setAlignment(vo.align);
         labelComponent.setWrap(vo.wrap);
         labelComponent.fitWidth = vo.fitWidth;
@@ -103,11 +100,7 @@ public class TypingLabelComponentFactory extends ComponentFactory {
         super.initializeTransientComponents(entity);
 
         LabelComponent component = labelCM.get(entity);
-        if (component.bitmapFont != null) {
-            component.setStyle(LabelComponentFactory.generateStyle(rm, component.bitmapFont));
-        } else {
-            component.setStyle(LabelComponentFactory.generateStyle(rm, component.fontName, component.fontSize, component.mono));
-        }
+        component.setStyle(LabelComponentFactory.generateStyle(rm, component));
 
         ProjectInfoVO projectInfoVO = rm.getProjectVO();
         ResolutionEntryVO resolutionEntryVO = rm.getLoadedResolution();
