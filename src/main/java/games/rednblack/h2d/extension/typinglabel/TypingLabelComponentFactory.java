@@ -81,7 +81,7 @@ public class TypingLabelComponentFactory extends ComponentFactory {
         labelComponent.fontSize = vo.size;
         labelComponent.mono = vo.monoSpace;
         LabelComponentFactory.setBorder(labelComponent, vo);
-        labelComponent.setStyle(LabelComponentFactory.generateStyle(rm, labelComponent));
+        LabelComponentFactory.applyFonts(rm, labelComponent);
         labelComponent.setAlignment(vo.align);
         labelComponent.setWrap(vo.wrap);
         labelComponent.fitWidth = vo.fitWidth;
@@ -100,7 +100,7 @@ public class TypingLabelComponentFactory extends ComponentFactory {
         super.initializeTransientComponents(entity);
 
         LabelComponent component = labelCM.get(entity);
-        component.setStyle(LabelComponentFactory.generateStyle(rm, component));
+        LabelComponentFactory.applyFonts(rm, component);
 
         ProjectInfoVO projectInfoVO = rm.getProjectVO();
         ResolutionEntryVO resolutionEntryVO = rm.getLoadedResolution();
