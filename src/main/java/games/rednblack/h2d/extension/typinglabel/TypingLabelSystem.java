@@ -93,10 +93,8 @@ public class TypingLabelSystem extends IteratingSystem {
     private static void update(TypingLabel typingLabel, boolean newText, LabelComponent labelComponent, DimensionsComponent dimensionsComponent) {
         //A new text is typed out from its start. TextraTypist's setText alone shows it whole when the
         //text before had finished typing, which is the usual case: the label was waiting for it.
-        if (newText) {
-            typingLabel.setText(labelComponent.getText().toString());
-            typingLabel.restart();
-        }
+        //restart(text) parses and lays it out once; setText then restart() did it three times over.
+        if (newText) typingLabel.restart(labelComponent.getText().toString());
         if (typingLabel.isWrap() != labelComponent.wrap) typingLabel.setWrap(labelComponent.wrap);
         if (typingLabel.getAlignment() != labelComponent.labelAlign) typingLabel.setAlignment(labelComponent.labelAlign);
         if (typingLabel.getWidth() != dimensionsComponent.width) typingLabel.setWidth(dimensionsComponent.width);
